@@ -43,6 +43,7 @@ function FoundItemsDirectiveLink(scope, element, attrs, controller) {
     console.log("New value: ", newValue);
 
     if (newValue === 0) {
+      // If nothing is found as a result of the search OR if the user leaves the textbox empty
       displayNothingFoundWarning();
     }
     else {
@@ -142,13 +143,15 @@ function NarrowItDownAppService($http, ApiBasePath) {
       found = [];
 
       //Once it gets all the menu items, it should loop through them
-      for (var i=0; i<menuItems.menu_items.length; i++){        
+      if(searchTerm.trim().length>0){
+        for (var i=0; i<menuItems.menu_items.length; i++){        
 
-        if(angular.fromJson(menuItems.menu_items[i]).description.toLowerCase().indexOf(searchTerm.toLowerCase())>-1){          
-          // console.log(i);
-          found.push(menuItems.menu_items[i]);
-        }
-      }      
+          if(angular.fromJson(menuItems.menu_items[i]).description.toLowerCase().indexOf(searchTerm.toLowerCase())>-1){          
+            // console.log(i);
+            found.push(menuItems.menu_items[i]);
+          }
+        }      
+      }
       console.log(found.length + ' items found. Search Term: ' + searchTerm);
 
       var response = {status: 200, data: found};
