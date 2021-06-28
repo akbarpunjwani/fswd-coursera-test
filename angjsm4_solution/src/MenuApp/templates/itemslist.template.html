@@ -1,0 +1,9 @@
+<ul>
+	<!-- <li>A</li> -->
+  <li ng-repeat="item in $ctrl.itemslist.data.menu_items">
+      <!-- ui-sref="mainList.itemDetail({itemId: $index})">     -->
+      {{ item.name  }} ({{ item.short_name  }}_{{ item.id }})
+      <!-- {{ item }} -->
+  </li>
+</ul>
+{{ $ctrl.categoryItems }}
