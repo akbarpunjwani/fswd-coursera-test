@@ -8,13 +8,20 @@ angular.module('common')
 MenuService.$inject = ['$http', 'ApiPath'];
 function MenuService($http, ApiPath) {
   var service = this;
-  var userinfo = {firstname:"XXXX",
-                  lastname:"YYYX",
-                  email:"xxx@yyy.com",
+  var userinfo = {firstname:"",
+                  lastname:"",
+                  email:"",
                   phone:"",
-                  itemshortname:"L15",
+                  itemshortname:"",
                   itemdetails:null
                 };
+  // var userinfo = {firstname:"XXXX",
+  //                 lastname:"YYYX",
+  //                 email:"xxx@yyy.com",
+  //                 phone:"",
+  //                 itemshortname:"L15",
+  //                 itemdetails:null
+  //               };
 
   service.signupRequired = true;
 
