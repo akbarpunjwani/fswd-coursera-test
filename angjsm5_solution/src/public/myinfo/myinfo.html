@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Registered Information</h1>
+  <fieldset>
+    <legend>Registration</legend>
+    <h3 ng-if="myinfoCtrl.signupRequired == true">Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></h3>
+    <div ng-if="myinfoCtrl.signupRequired == false">
+      <h3>First Name:</h3>
+        {{ myinfoCtrl.user.firstname }}
+        <br><br>
+
+      <h3>Last Name:</h3>
+        {{ myinfoCtrl.user.lastname }}
+        <br><br>
+
+      <h3>Email:</h3>
+        {{ myinfoCtrl.user.email }}
+        <br><br>
+
+      <h3>Phone:</h3>
+        {{ myinfoCtrl.user.phone }}
+        <br><br>
+
+      <h3>Favorite Dish:</h3>
+        Menu Item #: {{ myinfoCtrl.user.itemshortname }}
+        <br><br>
+      <h4>ENJOY YOUR FAVORITE DISH!</h4>
+      <menu-item menu-item="myinfoCtrl.user.itemdetails">
+      </menu-item>
+    </div>
+  </fieldset>
+</div>
